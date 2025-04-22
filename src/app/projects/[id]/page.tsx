@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import Navbar from '../../../components/Navbar/Navbar';
 import Footer from '../../../components/Footer/Footer';
+import ThemeProvider from '../../../components/ThemeToggle/ThemeProvider';
 import './project-details.css';
 
 // This would come from Supabase in a real application
@@ -224,148 +225,152 @@ const ProjectDetailsPage = () => {
   // If project not found, show error
   if (!project) {
     return (
+      <ThemeProvider>
+        <>
+          <Navbar />
+          <main className="project-details-page">
+            <div className="container">
+              <div className="project-not-found">
+                <h1>Project Not Found</h1>
+                <p>The project you&apos;re looking for doesn&apos;t exist or has been removed.</p>
+                <Link href="/#projects" className="btn btn-primary">
+                  Back to Projects
+                </Link>
+              </div>
+            </div>
+          </main>
+          <Footer />
+        </>
+      </ThemeProvider>
+    );
+  }
+  
+  return (
+    <ThemeProvider>
       <>
         <Navbar />
         <main className="project-details-page">
           <div className="container">
-            <div className="project-not-found">
-              <h1>Project Not Found</h1>
-              <p>The project you&apos;re looking for doesn&apos;t exist or has been removed.</p>
-              <Link href="/#projects" className="btn btn-primary">
-                Back to Projects
-              </Link>
+            <div className="project-details-container">
+              <div className="project-details-header">
+                <Link href="/#projects" className="back-button">
+                  ← Back to Projects
+                </Link>
+                <h1 className="project-title">{project.title}</h1>
+              </div>
+              
+              {/* Main project image */}
+              <div 
+                className={`project-main-image project-id-${project.id}`} 
+                onClick={() => openImageModal(project.image, 0)}
+              >
+                <Image 
+                  src={project.image}
+                  alt={project.title}
+                  width={1200}
+                  height={600}
+                  className="featured-image"
+                />
+              </div>
+              
+              <div className="project-details-content">
+                <div className="project-info">
+                  <h2>Project Overview</h2>
+                  <p className="project-description">{project.fullDescription}</p>
+                  
+                  <h2>Technologies Used</h2>
+                  <div className="project-tech">
+                    {project.technologies.map((tech, index) => (
+                      <span key={index} className="tech-tag">{tech}</span>
+                    ))}
+                  </div>
+                  
+                  <h2>My Contributions</h2>
+                  <p>{project.contributions}</p>
+                  
+                  {/* Project screenshots gallery */}
+                  {project.screenshots && project.screenshots.length > 1 && (
+                    <>
+                      <h2>Project Gallery</h2>
+                      <div className="project-gallery">
+                        {project.screenshots.slice(1).map((screenshot, index) => {
+                          // Check if this is a mobile app project (CMEX or Criminal Verification)
+                          const isMobileApp = project.id === 4 || project.id === 5;
+                          return (
+                            <div 
+                              key={index} 
+                              className={`gallery-item ${isMobileApp ? 'mobile-app' : ''}`}
+                              onClick={() => openImageModal(screenshot, index + 1)}
+                            >
+                              <Image 
+                                src={screenshot}
+                                alt={`${project.title} screenshot ${index + 1}`}
+                                width={350}
+                                height={200}
+                                className={`gallery-image ${isMobileApp ? 'mobile-app-image' : ''}`}
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </>
+                  )}
+                  
+                  <div className="project-links-container">
+                    {project.github && (
+                      <a href={project.github} className="project-link github" target="_blank" rel="noopener noreferrer">
+                        View on GitHub
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Image Modal */}
+          <div 
+            className={`image-modal-overlay ${modalOpen ? 'active' : ''}`} 
+            onClick={closeImageModal}
+          >
+            <div className="modal-image-container" onClick={e => e.stopPropagation()}>
+              <button className="modal-close" onClick={closeImageModal}>&times;</button>
+              
+              {currentImage && (
+                <Image 
+                  src={currentImage} 
+                  alt="Enlarged view" 
+                  width={1200}
+                  height={800}
+                  className="modal-image"
+                  priority
+                />
+              )}
+              
+              {project.screenshots && project.screenshots.length > 1 && (
+                <div className="modal-navigation">
+                  <button 
+                    className="modal-nav-button" 
+                    onClick={showPrevImage}
+                    onTouchEnd={showPrevImage} 
+                  >
+                    &lt;
+                  </button>
+                  <button 
+                    className="modal-nav-button" 
+                    onClick={showNextImage}
+                    onTouchEnd={showNextImage}
+                  >
+                    &gt;
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </main>
         <Footer />
       </>
-    );
-  }
-  
-  return (
-    <>
-      <Navbar />
-      <main className="project-details-page">
-        <div className="container">
-          <div className="project-details-container">
-            <div className="project-details-header">
-              <Link href="/#projects" className="back-button">
-                ← Back to Projects
-              </Link>
-              <h1 className="project-title">{project.title}</h1>
-            </div>
-            
-            {/* Main project image */}
-            <div 
-              className={`project-main-image project-id-${project.id}`} 
-              onClick={() => openImageModal(project.image, 0)}
-            >
-              <Image 
-                src={project.image}
-                alt={project.title}
-                width={1200}
-                height={600}
-                className="featured-image"
-              />
-            </div>
-            
-            <div className="project-details-content">
-              <div className="project-info">
-                <h2>Project Overview</h2>
-                <p className="project-description">{project.fullDescription}</p>
-                
-                <h2>Technologies Used</h2>
-                <div className="project-tech">
-                  {project.technologies.map((tech, index) => (
-                    <span key={index} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
-                
-                <h2>My Contributions</h2>
-                <p>{project.contributions}</p>
-                
-                {/* Project screenshots gallery */}
-                {project.screenshots && project.screenshots.length > 1 && (
-                  <>
-                    <h2>Project Gallery</h2>
-                    <div className="project-gallery">
-                      {project.screenshots.slice(1).map((screenshot, index) => {
-                        // Check if this is a mobile app project (CMEX or Criminal Verification)
-                        const isMobileApp = project.id === 4 || project.id === 5;
-                        return (
-                          <div 
-                            key={index} 
-                            className={`gallery-item ${isMobileApp ? 'mobile-app' : ''}`}
-                            onClick={() => openImageModal(screenshot, index + 1)}
-                          >
-                            <Image 
-                              src={screenshot}
-                              alt={`${project.title} screenshot ${index + 1}`}
-                              width={350}
-                              height={200}
-                              className={`gallery-image ${isMobileApp ? 'mobile-app-image' : ''}`}
-                            />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </>
-                )}
-                
-                <div className="project-links-container">
-                  {project.github && (
-                    <a href={project.github} className="project-link github" target="_blank" rel="noopener noreferrer">
-                      View on GitHub
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Image Modal */}
-        <div 
-          className={`image-modal-overlay ${modalOpen ? 'active' : ''}`} 
-          onClick={closeImageModal}
-        >
-          <div className="modal-image-container" onClick={e => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeImageModal}>&times;</button>
-            
-            {currentImage && (
-              <Image 
-                src={currentImage} 
-                alt="Enlarged view" 
-                width={1200}
-                height={800}
-                className="modal-image"
-                priority
-              />
-            )}
-            
-            {project.screenshots && project.screenshots.length > 1 && (
-              <div className="modal-navigation">
-                <button 
-                  className="modal-nav-button" 
-                  onClick={showPrevImage}
-                  onTouchEnd={showPrevImage} 
-                >
-                  &lt;
-                </button>
-                <button 
-                  className="modal-nav-button" 
-                  onClick={showNextImage}
-                  onTouchEnd={showNextImage}
-                >
-                  &gt;
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </>
+    </ThemeProvider>
   );
 };
 

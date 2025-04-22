@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import './navbar.css';
 
 const Navbar: React.FC = () => {
@@ -78,6 +79,9 @@ const Navbar: React.FC = () => {
             <Link href="/resume" className="navbar-link btn-outline navbar-button">
               Resume
             </Link>
+          </li>
+          <li className="navbar-item theme-toggle-container">
+            <ThemeToggle />
           </li>
         </ul>
       </div>

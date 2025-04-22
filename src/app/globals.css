@@ -1,4 +1,5 @@
 :root {
+  /* Light theme colors */
   --dark-green: #18230F;
   --forest-green: #27391C;
   --medium-green: #255F38;
@@ -9,6 +10,28 @@
   --text-dark: #333333;
   --background: var(--white);
   --foreground: var(--text-dark);
+  --card-bg: var(--white);
+  --shadow: rgba(0, 0, 0, 0.1);
+  --border: #e2e8f0;
+  --heading-color: var(--dark-green);
+}
+
+[data-theme='dark'] {
+  /* Dark theme colors */
+  --dark-green: #1F4D26;
+  --forest-green: #0F361B;
+  --medium-green: #2A7D4C;
+  --light-green: #30A770;
+  --pale-green: #193824;
+  --white: #0D1117;
+  --text-light: #f8f8f8;
+  --text-dark: #E0E0E0;
+  --background: #0D1117;
+  --foreground: var(--text-light);
+  --card-bg: #161B22;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --border: #30363D;
+  --heading-color: #4ADE80; /* Light green for headings in dark mode */
 }
 
 * {
@@ -28,6 +51,7 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -136,6 +160,13 @@ button {
 .btn-outline:hover {
   background-color: var(--medium-green);
   color: var(--text-light);
+}
+
+/* Headings */
+.section-title, 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  transition: color 0.3s ease;
 }
 
 /* Media Queries */

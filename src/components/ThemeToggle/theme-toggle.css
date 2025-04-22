@@ -1,0 +1,44 @@
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+  font-size: 1.25rem;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle-btn:hover .theme-icon {
+  transform: rotate(30deg);
+}
+
+.theme-icon.sun {
+  color: #FFD700;
+}
+
+.theme-icon.moon {
+  color: var(--medium-green);
+}
+
+.theme-toggle-placeholder {
+  width: 2.5rem;
+  height: 2.5rem;
+} 

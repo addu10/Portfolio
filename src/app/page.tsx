@@ -8,18 +8,21 @@ import Projects from '../components/Projects/Projects';
 import Achievements from '../components/Achievements/Achievements';
 import Contact from '../components/Contact/Contact';
 import Footer from '../components/Footer/Footer';
+import ThemeProvider from '../components/ThemeToggle/ThemeProvider';
 
 export default function Home() {
   return (
-    <main>
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Achievements />
-      <Contact />
-      <Footer />
-    </main>
+    <ThemeProvider>
+      <main>
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Achievements />
+        <Contact />
+        <Footer />
+      </main>
+    </ThemeProvider>
   );
 } 
