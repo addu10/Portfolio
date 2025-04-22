@@ -347,4 +347,45 @@
   .project-links-container {
     flex-direction: column;
   }
+  
+  .project-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .gallery-item {
+    height: 180px;
+  }
+  
+  .gallery-item.mobile-app {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-item {
+    height: 200px;
+  }
+  
+  .gallery-item.mobile-app {
+    height: 350px;
+  }
+  
+  /* Improve modal for mobile */
+  .modal-image-container {
+    width: 95%;
+    padding: 0.5rem;
+  }
+  
+  .modal-image {
+    max-height: 80vh;
+  }
+  
+  .modal-navigation {
+    bottom: 0.5rem;
+  }
 } 

@@ -198,8 +198,8 @@ const ProjectDetailsPage = () => {
     document.body.style.overflow = 'auto';
   };
   
-  // Functions for image navigation
-  const showPrevImage = (e: React.MouseEvent) => {
+  // Functions for image navigation with touch support
+  const showPrevImage = (e: React.MouseEvent | React.TouchEvent) => {
     e.stopPropagation();
     if (!project?.screenshots) return;
     
@@ -210,7 +210,7 @@ const ProjectDetailsPage = () => {
     setCurrentIndex(newIndex);
   };
   
-  const showNextImage = (e: React.MouseEvent) => {
+  const showNextImage = (e: React.MouseEvent | React.TouchEvent) => {
     e.stopPropagation();
     if (!project?.screenshots) return;
     
@@ -345,10 +345,18 @@ const ProjectDetailsPage = () => {
             
             {project.screenshots && project.screenshots.length > 1 && (
               <div className="modal-navigation">
-                <button className="modal-nav-button" onClick={showPrevImage}>
+                <button 
+                  className="modal-nav-button" 
+                  onClick={showPrevImage}
+                  onTouchEnd={showPrevImage} 
+                >
                   &lt;
                 </button>
-                <button className="modal-nav-button" onClick={showNextImage}>
+                <button 
+                  className="modal-nav-button" 
+                  onClick={showNextImage}
+                  onTouchEnd={showNextImage}
+                >
                   &gt;
                 </button>
               </div>
