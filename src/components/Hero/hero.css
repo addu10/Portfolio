@@ -22,7 +22,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--dark-green);
+  color: var(--heading-color);
 }
 
 .hero-subtitle {
@@ -38,7 +38,7 @@
 
 .hero-description {
   font-size: 1.125rem;
-  color: var(--text-dark);
+  color: var(--foreground);
   margin-bottom: 2rem;
   line-height: 1.6;
 }

@@ -10,10 +10,10 @@
 }
 
 .skills-category {
-  background-color: var(--white);
+  background-color: var(--card-bg);
   padding: 1.5rem;
   border-radius: 0.5rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px var(--shadow);
   transition: transform 0.3s ease;
 }
 
@@ -24,7 +24,7 @@
 .category-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--dark-green);
+  color: var(--heading-color);
   margin-bottom: 1.5rem;
   position: relative;
   padding-bottom: 0.5rem;
@@ -60,7 +60,7 @@
 .skill-name {
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--text-dark);
+  color: var(--foreground);
   margin: 0;
 }
 

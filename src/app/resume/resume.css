@@ -115,12 +115,12 @@
 .degree {
   font-size: 1rem;
   margin: 0.5rem 0;
-  color: var(--text-light);
+  color: var(--foreground);
 }
 
 .grade {
   font-size: 0.9rem;
-  color: var(--text-light);
+  color: var(--foreground);
   margin: 0;
 }
 
@@ -159,7 +159,7 @@
 
 .responsibilities li {
   margin-bottom: 0.5rem;
-  color: var(--text-light);
+  color: var(--foreground);
 }
 
 /* Skills section */
@@ -198,7 +198,7 @@
 /* Projects section */
 .projects-note {
   margin-bottom: 1.5rem;
-  color: var(--text-light);
+  color: var(--foreground);
 }
 
 .projects-link {
@@ -236,7 +236,7 @@
 
 .project-desc {
   font-size: 0.9rem;
-  color: var(--text-light);
+  color: var(--foreground);
   margin: 0;
 }
 
@@ -278,7 +278,7 @@
 
 .certification-issuer {
   font-size: 0.9rem;
-  color: var(--text-light);
+  color: var(--foreground);
   margin: 0.5rem 0 0 0;
 }
 
@@ -291,7 +291,7 @@
 
 .achievements-list li {
   margin-bottom: 0.75rem;
-  color: var(--text-light);
+  color: var(--foreground);
   line-height: 1.5;
 }
 

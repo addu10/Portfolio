@@ -10,7 +10,7 @@
 }
 
 .contact-info {
-  color: var(--text-dark);
+  color: var(--foreground);
 }
 
 .contact-info h3 {
@@ -39,7 +39,7 @@
 }
 
 .info-value {
-  color: var(--text-dark);
+  color: var(--foreground);
   transition: color 0.3s ease;
 }
 
@@ -48,10 +48,10 @@ a.info-value:hover {
 }
 
 .contact-form-container {
-  background-color: var(--white);
+  background-color: var(--card-bg);
   padding: 2rem;
   border-radius: 0.5rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px var(--shadow);
 }
 
 .contact-form {
