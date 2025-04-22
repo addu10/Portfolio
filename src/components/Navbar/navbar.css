@@ -1,0 +1,149 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  transition: color 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: var(--medium-green);
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.navbar-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.navbar-link:hover {
+  color: var(--medium-green);
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--medium-green);
+  transition: width 0.3s ease;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+.navbar-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background-color: var(--dark-green);
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: var(--dark-green);
+  transition: all 0.3s ease;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  bottom: -8px;
+}
+
+.hamburger.open {
+  transform: rotate(45deg);
+}
+
+.hamburger.open::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+
+.hamburger.open::after {
+  bottom: 0;
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 70%;
+    height: calc(100vh - 70px);
+    flex-direction: column;
+    background-color: var(--white);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition: right 0.3s ease;
+  }
+
+  .navbar-menu.open {
+    right: 0;
+  }
+
+  .navbar-item {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .navbar-link::after {
+    display: none;
+  }
+} 

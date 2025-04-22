@@ -1,0 +1,335 @@
+.resume-page {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 250px);
+  background-color: var(--pale-green);
+}
+
+.resume-container {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: var(--white);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.resume-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin: 0;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  color: var(--white);
+  background-color: var(--dark-green);
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: var(--forest-green);
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  color: var(--white);
+  background-color: var(--light-green);
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: var(--medium-green);
+}
+
+.resume-content {
+  padding: 2rem;
+}
+
+/* Resume sections */
+.resume-section {
+  margin-bottom: 3rem;
+}
+
+.resume-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  color: var(--dark-green);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--pale-green);
+  padding-bottom: 0.5rem;
+}
+
+/* Education section */
+.education-item {
+  margin-bottom: 1.5rem;
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.institution {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin: 0;
+}
+
+.year {
+  font-size: 0.9rem;
+  color: var(--medium-green);
+  font-weight: 500;
+}
+
+.degree {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: var(--text-dark);
+}
+
+.grade {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+/* Experience section */
+.experience-item {
+  margin-bottom: 2rem;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.company {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin: 0;
+}
+
+.position {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--medium-green);
+  margin: 0.5rem 0;
+}
+
+.responsibilities {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.responsibilities li {
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+/* Skills section */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-category {
+  margin-bottom: 1rem;
+}
+
+.category-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-bottom: 0.75rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background-color: var(--pale-green);
+  color: var(--dark-green);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Projects section */
+.projects-note {
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+
+.projects-link {
+  color: var(--medium-green);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.resume-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.resume-project-item {
+  background-color: var(--pale-green);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid var(--medium-green);
+}
+
+.project-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin: 0 0 0.5rem 0;
+}
+
+.project-role {
+  font-size: 0.9rem;
+  color: var(--medium-green);
+  font-weight: 500;
+  margin: 0 0 0.75rem 0;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+/* Certifications section */
+.certification-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.certification-item {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--white);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid var(--light-green);
+}
+
+.certification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.certification-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin: 0;
+}
+
+.certification-date {
+  font-size: 0.9rem;
+  color: var(--medium-green);
+}
+
+.certification-issuer {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin: 0.5rem 0 0 0;
+}
+
+/* Achievements section */
+.achievements-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.achievements-list li {
+  margin-bottom: 0.75rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .resume-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .resume-title {
+    font-size: 1.5rem;
+  }
+  
+  .download-button {
+    align-self: stretch;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .education-header,
+  .experience-header,
+  .certification-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .skills-container,
+  .resume-projects,
+  .certification-items {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-content {
+    height: 500px;
+  }
+  
+  .resume-header h1 {
+    font-size: 1.5rem;
+  }
+} 
