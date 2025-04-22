@@ -112,6 +112,14 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.social-icon.whatsapp {
+  background-color: var(--medium-green);
+}
+
+.social-icon.whatsapp:hover {
+  background-color: var(--light-green);
+}
+
 .footer-content.centered {
   display: flex;
   justify-content: center;

@@ -12,7 +12,7 @@ const Achievements: React.FC = () => {
       organizer: 'IEEE Manipal University, Jaipur',
       project: 'EcoCommute',
       description: 'Awarded for developing EcoCommute, an innovative solution for sustainable transportation and reducing carbon footprint.',
-      role: 'Team Leader',
+      role: 'Frontend Developer',
       image: '/images/Hack to the Future.png',
       alt: 'Hack to the Future Certificate'
     },
@@ -33,7 +33,7 @@ const Achievements: React.FC = () => {
       organizer: 'CITTIC & IT Department, CUSAT',
       project: 'CareerBridge',
       description: 'First place in Hack-Europa for creating CareerBridge, an AI-powered jobs and internship portal designed for CUSAT students.',
-      role: 'Backend Developer',
+      role: 'Lead Backend Developer',
       image: '/images/HackEuropa.jpg',
       alt: 'HackEuropa Certificate',
       projectLink: '/projects/6'

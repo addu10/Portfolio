@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import './footer.css';
 
 const Footer: React.FC = () => {
@@ -20,6 +20,9 @@ const Footer: React.FC = () => {
               </a>
               <a href="https://github.com/addu10" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaGithub />
+              </a>
+              <a href="https://wa.me/918089708574" target="_blank" rel="noopener noreferrer" className="social-icon whatsapp">
+                <FaWhatsapp />
               </a>
             </div>
           </div>
