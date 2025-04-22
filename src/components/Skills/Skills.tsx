@@ -38,7 +38,6 @@ const Skills: React.FC = () => {
                 <div className="skill-item" key={index}>
                   <div className="skill-info">
                     <h4 className="skill-name">{skill.name}</h4>
-                    <span className="skill-percentage">{skill.proficiency}%</span>
                   </div>
                   <div className="skill-bar">
                     <div 
@@ -58,7 +57,6 @@ const Skills: React.FC = () => {
                 <div className="skill-item" key={index}>
                   <div className="skill-info">
                     <h4 className="skill-name">{skill.name}</h4>
-                    <span className="skill-percentage">{skill.proficiency}%</span>
                   </div>
                   <div className="skill-bar">
                     <div 
@@ -78,7 +76,6 @@ const Skills: React.FC = () => {
                 <div className="skill-item" key={index}>
                   <div className="skill-info">
                     <h4 className="skill-name">{skill.name}</h4>
-                    <span className="skill-percentage">{skill.proficiency}%</span>
                   </div>
                   <div className="skill-bar">
                     <div 

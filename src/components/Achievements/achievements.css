@@ -7,7 +7,7 @@
   text-align: center;
   max-width: 700px;
   margin: 0 auto 3rem;
-  color: var(--text-dark);
+  color: var(--text-light);
   font-size: 1.1rem;
 }
 
@@ -63,12 +63,12 @@
 .achievement-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--dark-green);
+  color: var(--heading-color);
   margin-bottom: 0.5rem;
 }
 
 .achievement-organizer {
-  color: var(--medium-green);
+  color: var(--light-green);
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 1rem;
@@ -88,27 +88,27 @@
 
 .detail-label {
   font-weight: 600;
-  color: var(--dark-green);
+  color: var(--heading-color);
 }
 
 .detail-value {
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 .project-link {
-  color: var(--medium-green);
+  color: var(--light-green);
   text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 .project-link:hover {
-  color: var(--dark-green);
+  color: var(--medium-green);
 }
 
 .achievement-description {
   margin-bottom: 1.5rem;
   line-height: 1.6;
-  color: var(--text-dark);
+  color: var(--text-light);
   flex-grow: 1;
 }
 

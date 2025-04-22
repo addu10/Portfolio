@@ -115,12 +115,12 @@
 .degree {
   font-size: 1rem;
   margin: 0.5rem 0;
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 .grade {
   font-size: 0.9rem;
-  color: var(--text-dark);
+  color: var(--text-light);
   margin: 0;
 }
 
@@ -159,7 +159,7 @@
 
 .responsibilities li {
   margin-bottom: 0.5rem;
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 /* Skills section */
@@ -188,7 +188,7 @@
 
 .skill-tag {
   background-color: var(--pale-green);
-  color: var(--dark-green);
+  color: var(--heading-color);
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
   font-size: 0.85rem;
@@ -198,11 +198,11 @@
 /* Projects section */
 .projects-note {
   margin-bottom: 1.5rem;
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 .projects-link {
-  color: var(--medium-green);
+  color: var(--light-green);
   font-weight: 600;
   text-decoration: underline;
 }
@@ -223,7 +223,7 @@
 .project-name {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--dark-green);
+  color: var(--heading-color);
   margin: 0 0 0.5rem 0;
 }
 
@@ -236,7 +236,7 @@
 
 .project-desc {
   font-size: 0.9rem;
-  color: var(--text-dark);
+  color: var(--text-light);
   margin: 0;
 }
 
@@ -250,8 +250,8 @@
 .certification-item {
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: var(--white);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 5px var(--shadow);
   border-top: 3px solid var(--light-green);
 }
 
@@ -267,7 +267,7 @@
 .certification-name {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--dark-green);
+  color: var(--heading-color);
   margin: 0;
 }
 
@@ -278,7 +278,7 @@
 
 .certification-issuer {
   font-size: 0.9rem;
-  color: var(--text-dark);
+  color: var(--text-light);
   margin: 0.5rem 0 0 0;
 }
 
@@ -291,7 +291,7 @@
 
 .achievements-list li {
   margin-bottom: 0.75rem;
-  color: var(--text-dark);
+  color: var(--text-light);
   line-height: 1.5;
 }
 

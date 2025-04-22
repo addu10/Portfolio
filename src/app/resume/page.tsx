@@ -67,27 +67,27 @@ const ResumePage = () => {
                   
                   <div className="experience-item">
                     <div className="experience-header">
-                      <h3 className="company">Sentinel Shield – Passport Verification System</h3>
-                      <span className="year">Feb 2024</span>
+                      <h3 className="company">Career-Bridge – AI Powered Jobs & Internship Portal</h3>
+                      <span className="year">Mar 2025</span>
                     </div>
-                    <p className="position">Team Leader & Lead Backend Developer</p>
+                    <p className="position">Backend Developer</p>
                     <ul className="responsibilities">
-                      <li>Led backend implementation using Flask and face-recognition ML to verify identities in real-time.</li>
-                      <li>Streamlined passport verification to reduce wait times and enhance passenger experience.</li>
-                      <li>Tech Stack – Python (Flask Framework, Face-Recognition ML) and Basic Front-End, MySQL.</li>
+                      <li>A product designed for the students in CUSAT to connect and achieve opportunities from several companies for jobs.</li>
+                      <li>Integrates AI-driven resume analysis, career roadmap generation, and smart filtering to connect students with recruiters.</li>
+                      <li>Tech Stack – NextJS, Supabase, Python Django.</li>
                     </ul>
                   </div>
                   
                   <div className="experience-item">
                     <div className="experience-header">
-                      <h3 className="company">HIPUS – CUSAT Notes Sharing Platform</h3>
-                      <span className="year">Mar 2024</span>
+                      <h3 className="company">CMEX – CUSAT Marketplace Android App</h3>
+                      <span className="year">Jan 2025</span>
                     </div>
-                    <p className="position">Backend Developer</p>
+                    <p className="position">Team Leader & Backend Developer</p>
                     <ul className="responsibilities">
-                      <li>Built backend APIs using Flask and Telegram&apos;s Telethon library to store and fetch notes via Telegram cloud.</li>
-                      <li>Facilitated seamless resource sharing among CUSAT students by building a centralized academic content platform.</li>
-                      <li>Tech Stack - Flask Framework, Telethon for Telegram, acting as the cloud storage, NextJS.</li>
+                      <li>Led a team to develop an Android app for CUSAT students to buy, sell, and rent goods.</li>
+                      <li>Developed to connect CUSAT students for buying, selling, and renting goods through an intuitive marketplace interface.</li>
+                      <li>Tech Stack – React Native, Supabase.</li>
                     </ul>
                   </div>
                   
@@ -106,14 +106,14 @@ const ResumePage = () => {
                   
                   <div className="experience-item">
                     <div className="experience-header">
-                      <h3 className="company">CMEX – CUSAT Marketplace Android App</h3>
-                      <span className="year">Jan 2025</span>
+                      <h3 className="company">Sentinel Shield – Passport Verification System</h3>
+                      <span className="year">Feb 2024</span>
                     </div>
-                    <p className="position">Team Leader & Backend Developer</p>
+                    <p className="position">Team Leader & Lead Backend Developer</p>
                     <ul className="responsibilities">
-                      <li>Led a team to develop an Android app for CUSAT students to buy, sell, and rent goods.</li>
-                      <li>Developed to connect CUSAT students for buying, selling, and renting goods through an intuitive marketplace interface.</li>
-                      <li>Tech Stack – React Native, Supabase.</li>
+                      <li>Led backend implementation using Flask and face-recognition ML to verify identities in real-time.</li>
+                      <li>Streamlined passport verification to reduce wait times and enhance passenger experience.</li>
+                      <li>Tech Stack – Python (Flask Framework, Face-Recognition ML) and Basic Front-End, MySQL.</li>
                     </ul>
                   </div>
                   
@@ -133,14 +133,14 @@ const ResumePage = () => {
                   
                   <div className="experience-item">
                     <div className="experience-header">
-                      <h3 className="company">Career-Bridge – AI Powered Jobs & Internship Portal</h3>
-                      <span className="year">Mar 2025</span>
+                      <h3 className="company">HIPUS – CUSAT Notes Sharing Platform</h3>
+                      <span className="year">Mar 2024</span>
                     </div>
                     <p className="position">Backend Developer</p>
                     <ul className="responsibilities">
-                      <li>A product designed for the students in CUSAT to connect and achieve opportunities from several companies for jobs.</li>
-                      <li>Integrates AI-driven resume analysis, career roadmap generation, and smart filtering to connect students with recruiters.</li>
-                      <li>Tech Stack – NextJS, Supabase, Python Django.</li>
+                      <li>Built backend APIs using Flask and Telegram&apos;s Telethon library to store and fetch notes via Telegram cloud.</li>
+                      <li>Facilitated seamless resource sharing among CUSAT students by building a centralized academic content platform.</li>
+                      <li>Tech Stack - Flask Framework, Telethon for Telegram, acting as the cloud storage, NextJS.</li>
                     </ul>
                   </div>
                 </section>
@@ -159,7 +159,7 @@ const ResumePage = () => {
                 
                 {/* Skills Section */}
                 <section className="resume-section">
-                  <h2 className="section-title">Technical Skills</h2>
+                  <h2 className="section-title">Skills</h2>
                   
                   <div className="skills-container">
                     <div className="skill-category">
