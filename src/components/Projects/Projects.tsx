@@ -6,35 +6,38 @@ import './projects.css';
 const projectsData = [
   {
     id: 1,
+    title: 'CAREER-BRIDGE',
+    description: 'AI-powered jobs & internship portal for CUSAT students to find career opportunities.',
+    image: '/images/CareerBridge Main.png',
+    technologies: ['NextJS', 'Supabase', 'Python Django'],
+    github: 'https://github.com/addu10/CareerBridge'
+    
+  },
+  {
+    id: 2,
     title: 'SENTINEL SHIELD',
     description: 'Passport verification system using face recognition technology for enhanced security and authentication.',
     image: '/images/Sentinel Main.png',
     technologies: ['Python', 'Flask', 'Face-Recognition ML', 'MySQL'],
     github: 'https://github.com/addu10/Sentinel-Shield'
-  },
-  {
-    id: 2,
-    title: 'HIPUS',
-    description: 'Notes sharing platform for CUSAT students, enabling easy access to academic resources.',
-    image: '/images/Hipus Main.png',
-    technologies: ['Flask', 'Telethon', 'NextJS'],
-    github: 'https://github.com/AazimAnish/CUSAT-notes'
+    
   },
   {
     id: 3,
-    title: 'OUR RUPEE',
-    description: 'Blockchain-based donation platform to prevent donation fraud using smart contracts.',
-    image: '/images/Our Rupee Main.png',
-    technologies: ['HTML/CSS/JS', 'Ethereum', 'Solidity', 'Auth0', 'Flask'],
-    github: 'https://github.com/addu10/OurRupee'
-  },
-  {
-    id: 4,
     title: 'CMEX',
     description: 'Android app for CUSAT students to buy, sell, and rent goods within the campus community.',
     image: '/images/CMEX logo.png',
     technologies: ['React Native', 'Supabase'],
     github: 'https://github.com/addu10/CMEX'
+    
+  },
+  {
+    id: 4,
+    title: 'OUR RUPEE',
+    description: 'Blockchain-based donation platform to prevent donation fraud using smart contracts.',
+    image: '/images/Our Rupee Main.png',
+    technologies: ['HTML/CSS/JS', 'Ethereum', 'Solidity', 'Auth0', 'Flask'],
+    github: 'https://github.com/addu10/OurRupee'
   },
   {
     id: 5,
@@ -46,11 +49,11 @@ const projectsData = [
   },
   {
     id: 6,
-    title: 'CAREER-BRIDGE',
-    description: 'AI-powered jobs & internship portal for CUSAT students to find career opportunities.',
-    image: '/images/CareerBridge Main.png',
-    technologies: ['NextJS', 'Supabase', 'Python Django'],
-    github: 'https://github.com/addu10/CareerBridge'
+    title: 'HIPUS',
+    description: 'Notes sharing platform for CUSAT students, enabling easy access to academic resources.',
+    image: '/images/Hipus Main.png',
+    technologies: ['Flask', 'Telethon', 'NextJS'],
+    github: 'https://github.com/AazimAnish/CUSAT-notes'
   }
 ];
 

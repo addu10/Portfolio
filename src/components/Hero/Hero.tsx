@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
           <h1 className="hero-title">Hi, I&apos;m <span className="highlight">Adnan Sameer</span></h1>
           <h2 className="hero-subtitle">Aspiring Software Developer</h2>
           <p className="hero-description">
-            A passionate Information Technology student with a focus on Software development.
+            A passionate Engineering student with a focus on Software development.
             Currently in my 3rd year of BTech in Information Technology.
           </p>
           <div className="hero-buttons">

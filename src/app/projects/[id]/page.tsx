@@ -13,6 +13,34 @@ import './project-details.css';
 const projectsData = [
   {
     id: 1,
+    title: 'CAREER-BRIDGE',
+    description: 'AI-powered jobs & internship portal for CUSAT students to find career opportunities.',
+    fullDescription: `
+      Career-Bridge is an AI-powered jobs and internship portal designed specifically for CUSAT students to connect with potential employers and find career opportunities.
+      
+      Key features include:
+      - AI-powered job matching algorithm
+      - Resume parsing and analysis
+      - Company profiles and job listings
+      - Application tracking system
+      - Interview scheduling and feedback collection
+    `,
+    image: '/images/CareerBridge Main.png',
+    technologies: ['NextJS', 'Supabase', 'Python Django'],
+    github: 'https://github.com/addu10/CareerBridge',
+    live: 'https://career-bridge-demo.example.com',
+    contributions: `As Backend Developer, I developed the Django backend API, implemented the database schema in Supabase, and created the job matching algorithm. I also integrated the backend with the NextJS frontend and developed the user authentication system.`,
+    screenshots: [
+      '/images/CareerBridge Main.png',
+      '/images/CareerBridge Jobs.png',
+      '/images/CareerBridge Candidates.png',
+      '/images/CareerBridge Profile.png',
+      '/images/CareerBridge Resume.png',
+      '/images/CareerBridge Roadmap.png',
+    ]
+  },
+  {
+    id: 2,
     title: 'SENTINEL SHIELD',
     description: 'Passport verification system using face recognition technology for enhanced security and authentication.',
     fullDescription: `
@@ -38,57 +66,10 @@ const projectsData = [
       '/images/Sentinel Verified.png',
       '/images/Sentinel What we do.png',
     ]
-  },
-  {
-    id: 2,
-    title: 'HIPUS',
-    description: 'Notes sharing platform for CUSAT students, enabling easy access to academic resources.',
-    fullDescription: `
-      HIPUS is a notes sharing platform specifically designed for CUSAT (Cochin University of Science and Technology) students to access and share academic resources.
-      
-      Key features include:
-      - Centralized repository for course notes
-      - Telegram integration for easy sharing
-      - User authentication and profile management
-      - Search functionality for finding specific notes
-      - Mobile-responsive design for access on any device
-    `,
-    image: '/images/Hipus Main.png',
-    technologies: ['Flask', 'Telethon', 'NextJS'],
-    github: 'https://github.com/AazimAnish/CUSAT-notes',
-    contributions: `As Backend Developer, I implemented the Flask backend API and integrated Telethon for automated Telegram interactions.`,
-    screenshots: [
-      '/images/Hipus Main.png',
-      '/images/Hipus Upload.png',
-    ]
+    
   },
   {
     id: 3,
-    title: 'OUR RUPEE',
-    description: 'Blockchain-based donation platform to prevent donation fraud using smart contracts.',
-    fullDescription: `
-      Our Rupee is a blockchain-based donation platform that uses smart contracts to ensure transparency and prevent donation fraud in charitable giving.
-      
-      Key features include:
-      - Ethereum-based smart contracts for transparent transactions
-      - User authentication via Auth0
-      - Donation tracking and verification
-      - Public ledger of all transactions
-      - Campaign creation and management
-    `,
-    image: '/images/Our Rupee Main.png',
-    technologies: ['HTML/CSS/JS', 'Ethereum', 'Solidity', 'Auth0', 'Flask'],
-    github: 'https://github.com/addu10/OurRupee',
-    live: 'https://our-rupee-demo.example.com',
-    contributions: `As Lead Backend Developer, I integrated Auth0 for authentication, and developed the Flask backend.`,
-    screenshots: [
-      '/images/Our Rupee Main.png',
-      '/images/Our Rupee Donation.png',
-      '/images/Our Rupee Collections.png',
-    ]
-  },
-  {
-    id: 4,
     title: 'CMEX',
     description: 'Android app for CUSAT students to buy, sell, and rent goods within the campus community.',
     fullDescription: `
@@ -116,6 +97,33 @@ const projectsData = [
       '/images/CMEX LOGIN.jpg',
       '/images/CMEX WISHLIST.jpg',
     ]
+    
+  },
+  {
+    id: 4,
+    title: 'OUR RUPEE',
+    description: 'Blockchain-based donation platform to prevent donation fraud using smart contracts.',
+    fullDescription: `
+      Our Rupee is a blockchain-based donation platform that uses smart contracts to ensure transparency and prevent donation fraud in charitable giving.
+      
+      Key features include:
+      - Ethereum-based smart contracts for transparent transactions
+      - User authentication via Auth0
+      - Donation tracking and verification
+      - Public ledger of all transactions
+      - Campaign creation and management
+    `,
+    image: '/images/Our Rupee Main.png',
+    technologies: ['HTML/CSS/JS', 'Ethereum', 'Solidity', 'Auth0', 'Flask'],
+    github: 'https://github.com/addu10/OurRupee',
+    live: 'https://our-rupee-demo.example.com',
+    contributions: `As Lead Backend Developer, I integrated Auth0 for authentication, and developed the Flask backend.`,
+    screenshots: [
+      '/images/Our Rupee Main.png',
+      '/images/Our Rupee Donation.png',
+      '/images/Our Rupee Collections.png',
+    ]
+
   },
   {
     id: 5,
@@ -143,31 +151,27 @@ const projectsData = [
   },
   {
     id: 6,
-    title: 'CAREER-BRIDGE',
-    description: 'AI-powered jobs & internship portal for CUSAT students to find career opportunities.',
+    title: 'HIPUS',
+    description: 'Notes sharing platform for CUSAT students, enabling easy access to academic resources.',
     fullDescription: `
-      Career-Bridge is an AI-powered jobs and internship portal designed specifically for CUSAT students to connect with potential employers and find career opportunities.
+      HIPUS is a notes sharing platform specifically designed for CUSAT (Cochin University of Science and Technology) students to access and share academic resources.
       
       Key features include:
-      - AI-powered job matching algorithm
-      - Resume parsing and analysis
-      - Company profiles and job listings
-      - Application tracking system
-      - Interview scheduling and feedback collection
+      - Centralized repository for course notes
+      - Telegram integration for easy sharing
+      - User authentication and profile management
+      - Search functionality for finding specific notes
+      - Mobile-responsive design for access on any device
     `,
-    image: '/images/CareerBridge Main.png',
-    technologies: ['NextJS', 'Supabase', 'Python Django'],
-    github: 'https://github.com/addu10/CareerBridge',
-    live: 'https://career-bridge-demo.example.com',
-    contributions: `As Backend Developer, I developed the Django backend API, implemented the database schema in Supabase, and created the job matching algorithm. I also integrated the backend with the NextJS frontend and developed the user authentication system.`,
+    image: '/images/Hipus Main.png',
+    technologies: ['Flask', 'Telethon', 'NextJS'],
+    github: 'https://github.com/AazimAnish/CUSAT-notes',
+    contributions: `As Backend Developer, I implemented the Flask backend API and integrated Telethon for automated Telegram interactions.`,
     screenshots: [
-      '/images/CareerBridge Main.png',
-      '/images/CareerBridge Jobs.png',
-      '/images/CareerBridge Candidates.png',
-      '/images/CareerBridge Profile.png',
-      '/images/CareerBridge Resume.png',
-      '/images/CareerBridge Roadmap.png',
+      '/images/Hipus Main.png',
+      '/images/Hipus Upload.png',
     ]
+    
   }
 ];
 
@@ -261,7 +265,7 @@ const ProjectDetailsPage = () => {
               
               {/* Main project image */}
               <div 
-                className={`project-main-image project-id-${project.id}`} 
+                className={`project-main-image project-id-${project.id} ${project.id === 3 || project.id === 5 ? 'mobile-app-main' : ''}`} 
                 onClick={() => openImageModal(project.image, 0)}
               >
                 <Image 
@@ -269,7 +273,7 @@ const ProjectDetailsPage = () => {
                   alt={project.title}
                   width={1200}
                   height={600}
-                  className="featured-image"
+                  className={`featured-image ${project.id === 3 || project.id === 5 ? 'mobile-app-featured-image' : ''}`}
                 />
               </div>
               
@@ -295,7 +299,7 @@ const ProjectDetailsPage = () => {
                       <div className="project-gallery">
                         {project.screenshots.slice(1).map((screenshot, index) => {
                           // Check if this is a mobile app project (CMEX or Criminal Verification)
-                          const isMobileApp = project.id === 4 || project.id === 5;
+                          const isMobileApp = project.id === 3 || project.id === 5;
                           return (
                             <div 
                               key={index} 

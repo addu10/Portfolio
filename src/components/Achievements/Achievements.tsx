@@ -8,13 +8,15 @@ const Achievements: React.FC = () => {
   const achievements = [
     {
       id: 1,
-      title: 'Best Product Award in Hack to the Future',
-      organizer: 'IEEE Manipal University, Jaipur',
-      project: 'EcoCommute',
-      description: 'Awarded for developing EcoCommute, an innovative solution for sustainable transportation and reducing carbon footprint.',
-      role: 'Frontend Developer',
-      image: '/images/Hack to the Future.png',
-      alt: 'Hack to the Future Certificate'
+      title: 'Winners of Hack-Europa',
+      organizer: 'CITTIC & IT Department, CUSAT',
+      project: 'CareerBridge',
+      description: 'First place in Hack-Europa for creating CareerBridge, an AI-powered jobs and internship portal designed for CUSAT students.',
+      role: 'Lead Backend Developer',
+      image: '/images/HackEuropa.jpg',
+      alt: 'HackEuropa Certificate',
+      projectLink: '/projects/1'
+      
     },
     {
       id: 2,
@@ -25,18 +27,17 @@ const Achievements: React.FC = () => {
       role: 'Lead Backend Developer',
       image: '/images/Make-A-Ton.jpg',
       alt: 'Make-A-Ton Certificate',
-      projectLink: '/projects/3'
+      projectLink: '/projects/4'
     },
     {
       id: 3,
-      title: 'Winners of Hack-Europa',
-      organizer: 'CITTIC & IT Department, CUSAT',
-      project: 'CareerBridge',
-      description: 'First place in Hack-Europa for creating CareerBridge, an AI-powered jobs and internship portal designed for CUSAT students.',
-      role: 'Lead Backend Developer',
-      image: '/images/HackEuropa.jpg',
-      alt: 'HackEuropa Certificate',
-      projectLink: '/projects/6'
+      title: 'Best Product Award in Hack to the Future',
+      organizer: 'IEEE Manipal University, Jaipur',
+      project: 'EcoCommute',
+      description: 'Awarded for developing EcoCommute, an innovative solution for sustainable transportation and reducing carbon footprint.',
+      role: 'Frontend Developer',
+      image: '/images/Hack to the Future.png',
+      alt: 'Hack to the Future Certificate'
     }
   ];
 

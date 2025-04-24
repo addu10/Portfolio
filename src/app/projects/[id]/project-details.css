@@ -79,6 +79,23 @@
   height: auto;
 }
 
+/* Mobile app main image styling */
+.project-main-image.mobile-app-main {
+  height: 600px;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-image.mobile-app-featured-image {
+  object-fit: contain;
+  max-height: 90%;
+  max-width: 90%;
+  width: auto;
+  height: auto;
+}
+
 /* Project Gallery */
 .project-gallery {
   display: grid;
