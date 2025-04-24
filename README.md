@@ -23,11 +23,8 @@ A modern, responsive portfolio website built with Next.js 15, React 19, and Tail
 
 ## 🚀 Live Demo
 
-Visit the live site: [Your Portfolio URL]
+Visit the live site: https://portfolio-adnan-sameer.vercel.app/
 
-## 🖼️ Screenshots
-
-![Portfolio Preview](screenshot-url-here)
 
 ## 🛠️ Technologies
 
@@ -37,57 +34,7 @@ Visit the live site: [Your Portfolio URL]
 - **Icons**: React Icons
 - **Deployment**: [Your deployment platform, e.g., Vercel]
 
-## 🧰 Installation & Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/portfolio-website.git
-   cd portfolio-website
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open [http://localhost:3000](http://localhost:3000) in your browser**
-
-## 📝 Project Structure
-
-```
-src/
-├── app/              # Next.js app router pages
-├── components/       # Reusable UI components
-│   ├── About/        # About section
-│   ├── Achievements/ # Achievements section
-│   ├── Contact/      # Contact section
-│   ├── Footer/       # Footer component
-│   ├── Hero/         # Hero section
-│   ├── Navbar/       # Navigation bar
-│   ├── Projects/     # Projects showcase
-│   ├── Skills/       # Skills section
-│   └── ThemeToggle/  # Dark/light mode toggle
-├── types/            # TypeScript type definitions
-└── utils/            # Utility functions
-```
-
-## 🚢 Deployment
-
-This portfolio is optimized for deployment on Vercel, but can be deployed on any platform that supports Next.js.
-
-## 🔄 Updates
-
-I regularly update this portfolio with new projects and skills. Check back often to see what I'm working on!
-
-## 📄 License
-
-[Your chosen license, e.g., MIT]
 
 ## 📧 Contact
 
-Feel free to reach out to me at [your email] or connect with me on [LinkedIn/Twitter/etc.].
+Feel free to reach out to me at adnan.sameer967@gmail.com
