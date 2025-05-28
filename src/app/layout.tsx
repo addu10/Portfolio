@@ -19,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="XhJdj/c2xPq2/Vcf+GEyrA" async></script>
+        <meta name="ahrefs-site-verification" content="f8544d4fe41ffd3116099a28298871ceafb007003556a6686f6d18fcf09796cf"></meta>
       </Head>
       <body className={inter.className}>
         {children}
