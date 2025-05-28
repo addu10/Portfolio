@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -16,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="XhJdj/c2xPq2/Vcf+GEyrA" async></script>
+      </Head>
       <body className={inter.className}>
         {children}
       </body>
