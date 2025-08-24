@@ -63,12 +63,25 @@
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border: 5px solid var(--pale-green);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-image-wrapper:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  border-color: var(--light-green);
 }
 
 .profile-image {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.profile-image-wrapper:hover .profile-image {
+  transform: scale(1.05);
 }
 
 @media (max-width: 992px) {

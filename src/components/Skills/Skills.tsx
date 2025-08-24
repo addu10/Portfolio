@@ -21,7 +21,12 @@ const skillsData = {
     { name: 'SQL', proficiency: 75 },
     { name: 'Face-Recognition', proficiency: 60 },
   ],
-  
+  aiAutomation: [
+    { name: 'n8n', proficiency: 80 },
+    { name: 'Clay AI', proficiency: 75 },
+    { name: 'Customer IO', proficiency: 70 },
+    { name: 'Open AI APIs', proficiency: 65 },
+  ],
 };
 
 const Skills: React.FC = () => {
@@ -88,7 +93,24 @@ const Skills: React.FC = () => {
             </div>
           </div>
           
-          
+          <div className="skills-category">
+            <h3 className="category-title">AI Automation Tools</h3>
+            <div className="skills-list">
+              {skillsData.aiAutomation.map((skill, index) => (
+                <div className="skill-item" key={index}>
+                  <div className="skill-info">
+                    <h4 className="skill-name">{skill.name}</h4>
+                  </div>
+                  <div className="skill-bar">
+                    <div 
+                      className="skill-progress" 
+                      style={{ width: `${skill.proficiency}%` }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

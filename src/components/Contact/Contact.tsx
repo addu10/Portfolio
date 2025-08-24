@@ -95,6 +95,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your Name"
+                  suppressHydrationWarning
                 />
               </div>
               
@@ -108,6 +109,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your Email"
+                  suppressHydrationWarning
                 />
               </div>
               
@@ -121,6 +123,7 @@ const Contact: React.FC = () => {
                   required
                   placeholder="Your Message"
                   rows={6}
+                  suppressHydrationWarning
                 ></textarea>
               </div>
               
@@ -128,6 +131,7 @@ const Contact: React.FC = () => {
                 type="submit" 
                 className="btn btn-primary submit-btn"
                 disabled={isSubmitting}
+                suppressHydrationWarning
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>

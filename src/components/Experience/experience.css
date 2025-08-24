@@ -84,12 +84,19 @@
   min-width: 400px;
   max-width: 520px;
   z-index: 2;
-  transition: box-shadow 0.3s, transform 0.3s;
+  transition: all 0.3s ease;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   border: 1.5px solid var(--border);
+  cursor: pointer;
+}
+
+.timeline-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px 0 rgba(60, 72, 88, 0.15), 0 2px 8px 0 rgba(60, 72, 88, 0.12);
+  border-color: var(--light-green);
 }
 
 .timeline-header {
