@@ -56,6 +56,11 @@ const Navbar: React.FC = () => {
             </Link>
           </li>
           <li className="navbar-item">
+            <Link href={isHomePage ? "/#experience" : "/#experience"} className="navbar-link">
+              Experience
+            </Link>
+          </li>
+          <li className="navbar-item">
             <Link href={isHomePage ? "/#skills" : "/#skills"} className="navbar-link">
               Skills
             </Link>

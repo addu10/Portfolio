@@ -9,6 +9,7 @@ import Achievements from '../components/Achievements/Achievements';
 import Contact from '../components/Contact/Contact';
 import Footer from '../components/Footer/Footer';
 import ThemeProvider from '../components/ThemeToggle/ThemeProvider';
+import Experience from '../components/Experience/Experience';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <About />
+        <Experience />
         <Skills />
         <Projects />
         <Achievements />

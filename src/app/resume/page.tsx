@@ -61,6 +61,38 @@ const ResumePage = () => {
                   </div>
                 </section>
                 
+                {/* Experience Section */}
+                <section className="resume-section">
+                  <h2 className="section-title">Experience</h2>
+                  <div className="experience-item">
+                    <div className="experience-header">
+                      <h3 className="position">AI Automation Specialist</h3>
+                      <h4 className="company">Bayzat - HR Software & Payroll</h4>
+                      <span className="year">Dubai, UAE | July 2025 - Present</span>
+                    </div>
+                    <ul className="responsibilities">
+                      <li>Design and implement end-to-end AI-driven automations to streamline Marketing and Customer Success campaigns.</li>
+                      <li>Build scalable workflows using n8n and Clay AI to fully automate campaign execution, monitoring, and reporting.</li>
+                      <li>Reduce manual effort by introducing intelligent process automations, improving operational efficiency and campaign
+                      turnaround time.</li>
+                    </ul>
+                  </div>
+
+                  <div className="experience-item">
+                    <div className="experience-header">
+                      <h3 className="position">AI Intern</h3>
+                      <h4 className="company">Bayzat - HR Software & Payroll</h4>
+                      <span className="year">Dubai, UAE | May 2025 - June 2025</span>
+                    </div>
+                    <ul className="responsibilities">
+                      <li>Lead a project to extract data from Linkedin Profiles by scraping, using Playwright, Nodriver in stealth.</li>
+                      <li>Created a fully working AI Automation using n8n and Clay AI which handles backlinks for the Marketing Team.</li>
+                      <li>Helped multiple colleagues in setting their own n8n workflows.</li>
+                    </ul>
+                  </div>
+
+                </section>
+                
                 {/* Projects Section */}
                 <section className="resume-section">
                   <h2 className="section-title">Projects</h2>
@@ -165,14 +197,14 @@ const ResumePage = () => {
                     <div className="skill-category">
                       <h3 className="category-title">Technical Skills</h3>
                       <div className="skills-list">
-                        <span className="skill-tag">Python</span>
-                        <span className="skill-tag">Flask Framework</span>
-                        <span className="skill-tag">Django</span>
-                        <span className="skill-tag">Face-Recognition</span>
+                        <span className="skill-tag">Python, C, C++ </span>
+                        <span className="skill-tag">Flask Framewor & Django</span>
+                        <span className="skill-tag">n8n</span>
                         <span className="skill-tag">React Native</span>
                         <span className="skill-tag">Supabase</span>
-                        <span className="skill-tag">MySQL</span>
-                        <span className="skill-tag">C & C++</span>
+                        <span className="skill-tag">Web Scraping (Playwright, Nodriver)</span>
+                        <span className="skill-tag">Clay AI Enrichments</span>
+                        <span className="skill-tag">Customer IO</span>
                       </div>
                     </div>
                     

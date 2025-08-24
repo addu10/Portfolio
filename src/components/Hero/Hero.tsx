@@ -9,10 +9,10 @@ const Hero: React.FC = () => {
       <div className="container hero-container">
         <div className="hero-content">
           <h1 className="hero-title">Hi, I&apos;m <span className="highlight">Adnan Sameer</span></h1>
-          <h2 className="hero-subtitle">Aspiring Software Developer</h2>
+          <h2 className="hero-subtitle">Aspiring AI Engineer</h2>
           <p className="hero-description">
-            A passionate Engineering student with a focus on Software development.
-            Currently in my 3rd year of BTech in Information Technology.
+            A passionate Engineering student with a focus on AI and Software development.
+            Currently in my 4th year of BTech in Information Technology.
           </p>
           <div className="hero-buttons">
             <Link href="/#contact" className="btn btn-primary">
@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
         <div className="hero-image-container">
           <div className="profile-image-wrapper">
           <Image
-  src="/images/profile.jpg"
+  src="/images/adnan_new.jpg"
   alt="Adnan Sameer"
   width={300}
   height={300}
