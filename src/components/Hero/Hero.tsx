@@ -110,7 +110,7 @@ const Hero: React.FC = () => {
           <div className="profile-image-wrapper">
             <div className="profile-glow" />
             <Image
-              src="/images/adnan_new.jpg"
+              src="/images/adnan_new.jpeg"
               alt="Adnan Sameer"
               width={300}
               height={300}
