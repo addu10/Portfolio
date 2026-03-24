@@ -1,87 +1,101 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import './navbar.css';
 
+const navLinks = [
+  { href: '#home', label: 'Home' },
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#achievements', label: 'Achievements' },
+  { href: '#contact', label: 'Contact' },
+];
+
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      // Detect active section
+      const sections = navLinks.map((l) => l.href.replace('#', ''));
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const scrollToTop = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link href="/" className="navbar-logo">
-          Adnan Sameer
+          <span className="logo-bracket">&lt;</span>
+          AS
+          <span className="logo-bracket">/&gt;</span>
         </Link>
 
-        {/* Mobile menu button */}
-        <button 
-          className="navbar-toggle" 
+        <button
+          className="navbar-toggle"
           onClick={toggleMenu}
           aria-label="Toggle navigation menu"
         >
           <span className={`hamburger ${isMenuOpen ? 'open' : ''}`}></span>
         </button>
 
-        {/* Navigation menu */}
         <ul className={`navbar-menu ${isMenuOpen ? 'open' : ''}`}>
+          {navLinks.map((link) => (
+            <li key={link.href} className="navbar-item">
+              {isHomePage && link.href === '#home' ? (
+                <a
+                  href="#"
+                  onClick={scrollToTop}
+                  className={`navbar-link ${activeSection === 'home' ? 'active' : ''}`}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  href={isHomePage ? `/${link.href}` : `/${link.href}`}
+                  className={`navbar-link ${activeSection === link.href.replace('#', '') ? 'active' : ''}`}
+                  onClick={handleNavClick}
+                >
+                  {link.label}
+                </Link>
+              )}
+            </li>
+          ))}
           <li className="navbar-item">
-            {isHomePage ? (
-              <a href="#" onClick={scrollToTop} className="navbar-link">
-                Home
-              </a>
-            ) : (
-              <Link href="/" className="navbar-link">
-                Home
-              </Link>
-            )}
-          </li>
-          <li className="navbar-item">
-            <Link href={isHomePage ? "/#about" : "/#about"} className="navbar-link">
-              About
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link href={isHomePage ? "/#experience" : "/#experience"} className="navbar-link">
-              Experience
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link href={isHomePage ? "/#skills" : "/#skills"} className="navbar-link">
-              Skills
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link href={isHomePage ? "/#projects" : "/#projects"} className="navbar-link">
-              Projects
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link href={isHomePage ? "/#achievements" : "/#achievements"} className="navbar-link">
-              Achievements
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link href={isHomePage ? "/#contact" : "/#contact"} className="navbar-link">
-              Contact
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link href="/resume" className="navbar-link btn-outline navbar-button">
+            <Link href="/resume" className="navbar-link navbar-resume-btn" onClick={handleNavClick}>
               Resume
             </Link>
           </li>
@@ -94,4 +108,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;

@@ -1,39 +1,38 @@
+'use client';
+
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import './contact.css';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Basic validation
+
     if (!formData.name || !formData.email || !formData.message) {
       alert('Please fill out all fields');
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     try {
-      // This would normally send the data to a server
-      // For now, we'll just simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
@@ -41,49 +40,58 @@ const Contact: React.FC = () => {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      
-      // Reset status after a delay
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 3000);
+      setTimeout(() => setSubmitStatus('idle'), 3000);
     }
   };
-  
+
   return (
     <section className="contact section" id="contact">
       <div className="container">
         <h2 className="section-title">Get In Touch</h2>
-        
-        <div className="contact-container">
+        <p className="section-description">
+          Have a project in mind or want to collaborate? Feel free to reach out!
+        </p>
+
+        <motion.div
+          className="contact-container"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="contact-info">
             <h3>Contact Information</h3>
             <p>
-              Feel free to reach out to me for any inquiries, collaboration opportunities, or just to say hello!
+              Feel free to reach out for inquiries, collaboration opportunities, or just to say
+              hello!
             </p>
-            
+
             <div className="info-item">
-              <span className="info-label">Email:</span>
+              <span className="info-label">Email</span>
               <a href="mailto:adnan.sameer957@gmail.com" className="info-value">
                 adnan.sameer957@gmail.com
               </a>
             </div>
-            
+
             <div className="info-item">
-              <span className="info-label">GitHub:</span>
-              <a href="https://github.com/addu10" target="_blank" rel="noopener noreferrer" className="info-value">
+              <span className="info-label">GitHub</span>
+              <a
+                href="https://github.com/addu10"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="info-value"
+              >
                 github.com/addu10
               </a>
             </div>
-            
+
             <div className="info-item">
-              <span className="info-label">Location:</span>
-              <span className="info-value">
-                Ernakulam, Kerala, India
-              </span>
+              <span className="info-label">Location</span>
+              <span className="info-value">Ernakulam, Kerala, India</span>
             </div>
           </div>
-          
-          <div className="contact-form-container">
+
+          <div className="contact-form-container glass-card">
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -98,7 +106,7 @@ const Contact: React.FC = () => {
                   suppressHydrationWarning
                 />
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="email">Email</label>
                 <input
@@ -112,7 +120,7 @@ const Contact: React.FC = () => {
                   suppressHydrationWarning
                 />
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="message">Message</label>
                 <textarea
@@ -126,33 +134,29 @@ const Contact: React.FC = () => {
                   suppressHydrationWarning
                 ></textarea>
               </div>
-              
-              <button 
-                type="submit" 
+
+              <button
+                type="submit"
                 className="btn btn-primary submit-btn"
                 disabled={isSubmitting}
                 suppressHydrationWarning
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
-              
+
               {submitStatus === 'success' && (
-                <div className="form-status success">
-                  Message sent successfully!
-                </div>
+                <div className="form-status success">Message sent successfully!</div>
               )}
-              
+
               {submitStatus === 'error' && (
-                <div className="form-status error">
-                  Failed to send message. Please try again.
-                </div>
+                <div className="form-status error">Failed to send message. Please try again.</div>
               )}
             </form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-export default Contact; 
+export default Contact;

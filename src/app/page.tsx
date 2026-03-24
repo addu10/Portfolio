@@ -10,11 +10,13 @@ import Contact from '../components/Contact/Contact';
 import Footer from '../components/Footer/Footer';
 import ThemeProvider from '../components/ThemeToggle/ThemeProvider';
 import Experience from '../components/Experience/Experience';
+import ScrollProgress from '../components/ScrollProgress/ScrollProgress';
 
 export default function Home() {
   return (
     <ThemeProvider>
       <main>
+        <ScrollProgress />
         <Navbar />
         <Hero />
         <About />
@@ -27,4 +29,4 @@ export default function Home() {
       </main>
     </ThemeProvider>
   );
-} 
+}

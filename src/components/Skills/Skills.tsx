@@ -1,7 +1,10 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import SkillOrb from './SkillOrb';
 import './skills.css';
 
-// Mock skills data
 const skillsData = {
   programming: [
     { name: 'Python', proficiency: 75 },
@@ -29,92 +32,73 @@ const skillsData = {
   ],
 };
 
+type Category = keyof typeof skillsData;
+
+const categoryLabels: Record<Category, string> = {
+  programming: 'Languages',
+  frameworks: 'Frameworks',
+  tools: 'Tools & Libraries',
+  aiAutomation: 'AI & Automation',
+};
+
 const Skills: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState<Category>('programming');
+
   return (
     <section className="skills section" id="skills">
       <div className="container">
         <h2 className="section-title">My Skills</h2>
-        
-        <div className="skills-container">
-          <div className="skills-category">
-            <h3 className="category-title">Programming Languages</h3>
-            <div className="skills-list">
-              {skillsData.programming.map((skill, index) => (
-                <div className="skill-item" key={index}>
-                  <div className="skill-info">
-                    <h4 className="skill-name">{skill.name}</h4>
-                  </div>
-                  <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
-                      style={{ width: `${skill.proficiency}%` }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="skills-category">
-            <h3 className="category-title">Frameworks</h3>
-            <div className="skills-list">
-              {skillsData.frameworks.map((skill, index) => (
-                <div className="skill-item" key={index}>
-                  <div className="skill-info">
-                    <h4 className="skill-name">{skill.name}</h4>
-                  </div>
-                  <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
-                      style={{ width: `${skill.proficiency}%` }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="skills-category">
-            <h3 className="category-title">Tools & Libraries</h3>
-            <div className="skills-list">
-              {skillsData.tools.map((skill, index) => (
-                <div className="skill-item" key={index}>
-                  <div className="skill-info">
-                    <h4 className="skill-name">{skill.name}</h4>
-                  </div>
-                  <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
-                      style={{ width: `${skill.proficiency}%` }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="skills-category">
-            <h3 className="category-title">AI Automation Tools</h3>
-            <div className="skills-list">
-              {skillsData.aiAutomation.map((skill, index) => (
-                <div className="skill-item" key={index}>
-                  <div className="skill-info">
-                    <h4 className="skill-name">{skill.name}</h4>
-                  </div>
-                  <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
-                      style={{ width: `${skill.proficiency}%` }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        <p className="section-description">
+          Technologies and tools I work with to build intelligent solutions.
+        </p>
+
+        {/* Category Tabs */}
+        <div className="skills-tabs">
+          {(Object.keys(skillsData) as Category[]).map((cat) => (
+            <button
+              key={cat}
+              className={`skills-tab ${activeCategory === cat ? 'skills-tab-active' : ''}`}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {categoryLabels[cat]}
+            </button>
+          ))}
+        </div>
+
+        {/* Skills Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            className="skills-grid"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            {skillsData[activeCategory].map((skill, index) => (
+              <SkillOrb
+                key={`${activeCategory}-${skill.name}`}
+                name={skill.name}
+                proficiency={skill.proficiency}
+                index={index}
+              />
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* All skills summary */}
+        <div className="skills-all-tags">
+          {Object.values(skillsData)
+            .flat()
+            .map((skill) => (
+              <span key={skill.name} className="skill-tag-mini">
+                {skill.name}
+              </span>
+            ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default Skills; 
+export default Skills;
