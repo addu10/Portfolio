@@ -86,15 +86,16 @@ const Skills: React.FC = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* All skills summary */}
-        <div className="skills-all-tags">
-          {Object.values(skillsData)
-            .flat()
-            .map((skill) => (
-              <span key={skill.name} className="skill-tag-mini">
+        {/* Infinite marquee ticker */}
+        <div className="skills-marquee-wrapper">
+          <div className="skills-marquee-track">
+            {[...Object.values(skillsData).flat(), ...Object.values(skillsData).flat()].map((skill, i) => (
+              <span key={i} className="skill-marquee-pill">
                 {skill.name}
+                <span className="skill-marquee-dot" />
               </span>
             ))}
+          </div>
         </div>
       </div>
     </section>

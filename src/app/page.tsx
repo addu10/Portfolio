@@ -11,10 +11,15 @@ import Footer from '../components/Footer/Footer';
 import ThemeProvider from '../components/ThemeToggle/ThemeProvider';
 import Experience from '../components/Experience/Experience';
 import ScrollProgress from '../components/ScrollProgress/ScrollProgress';
+import CustomCursor from '../components/CustomCursor/CustomCursor';
+import Loader from '../components/Loader/Loader';
+import Terminal from '../components/Terminal/Terminal';
 
 export default function Home() {
   return (
     <ThemeProvider>
+      <Loader />
+      <CustomCursor />
       <main>
         <ScrollProgress />
         <Navbar />
@@ -22,6 +27,7 @@ export default function Home() {
         <About />
         <Experience />
         <Skills />
+        <Terminal />
         <Projects />
         <Achievements />
         <Contact />

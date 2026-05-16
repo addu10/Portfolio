@@ -1,117 +1,116 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import './experience.css';
 
 const experiences = [
   {
     id: 1,
-    title: 'Student',
-    organization: 'Cochin University',
-    period: '2022 - Present',
-    description:
-      'Pursuing BTech in Information Technology, focusing on software development, data analysis, and real-world problem solving.',
-    icon: '/images/cusat.png',
-    skills: ['Software Development', 'Data Analysis', 'Problem Solving'],
-  },
-  {
-    id: 2,
-    title: 'AI Intern',
-    organization: 'Bayzat UAE',
-    period: 'May 2025 - June 2025',
-    description:
-      'Led LinkedIn profile data extraction project using Playwright and Nodriver. Created AI automation workflows with n8n and Clay AI for marketing backlinks. Assisted colleagues in setting up n8n workflows.',
-    icon: '/images/bayzat.gif',
-    skills: ['n8n', 'Playwright', 'Nodriver', 'Clay AI', 'Web Scraping'],
-  },
-  {
-    id: 3,
     title: 'AI Automation Specialist',
     organization: 'Bayzat UAE',
-    period: 'July 2025 - Present',
+    period: 'Jul 2025 – Present',
+    shortPeriod: 'JUL 2025',
     description:
       'Design and implement end-to-end AI-driven automations to streamline Marketing and Customer Success campaigns. Build scalable workflows using n8n and Clay AI to fully automate campaign execution, monitoring, and reporting.',
     icon: '/images/bayzat.gif',
     skills: ['n8n', 'Clay AI', 'AI Automations', 'Campaign Automation', 'Customer IO'],
   },
+  {
+    id: 2,
+    title: 'AI Intern',
+    organization: 'Bayzat UAE',
+    period: 'May – Jun 2025',
+    shortPeriod: 'MAY 2025',
+    description:
+      'Led LinkedIn profile data extraction project using Playwright and Nodriver. Created AI automation workflows with n8n and Clay AI for marketing backlinks. Assisted colleagues in setting up n8n workflows.',
+    icon: '/images/bayzat.gif',
+    skills: ['n8n', 'Playwright', 'Nodriver', 'Clay AI', 'Web Scraping'],
+  },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: i * 0.18 },
+  }),
+};
+
 const Experience: React.FC = () => {
-  const [visibleItems, setVisibleItems] = useState<Set<string>>(new Set());
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleItems((prev) => new Set(prev).add(entry.target.id));
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    document.querySelectorAll('.exp-timeline-item').forEach((el) => {
-      observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className="experience section" id="experience">
       <div className="container">
         <h2 className="section-title">Experience</h2>
         <p className="section-description">
-          My professional journey and educational background.
+          Building real-world AI automation systems at scale.
         </p>
 
-        <div className="exp-timeline">
-          {/* Glowing timeline line */}
-          <div className="exp-timeline-line" />
+        <div className="exp-track">
+          {/* Vertical glowing line */}
+          <div className="exp-line" />
 
-          {experiences.map((exp, index) => {
-            const isLeft = index % 2 === 0;
-            const isVisible = visibleItems.has(`exp-${exp.id}`);
-
-            return (
+          {experiences.map((exp, i) => (
+            <React.Fragment key={exp.id}>
               <motion.div
-                key={exp.id}
-                id={`exp-${exp.id}`}
-                className={`exp-timeline-item ${isLeft ? 'exp-left' : 'exp-right'}`}
-                initial={{ opacity: 0, x: isLeft ? -60 : 60 }}
-                animate={isVisible ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="exp-row"
+                custom={i}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-80px' }}
               >
-                {/* Card */}
-                <div className="exp-card glass-card glow-border">
-                  <div className="exp-card-header">
-                    <div className="exp-card-icon">
-                      <img src={exp.icon} alt={exp.organization} />
-                    </div>
-                    <div>
-                      <h3 className="exp-card-title">{exp.title}</h3>
-                      <span className="exp-card-org">@ {exp.organization}</span>
-                    </div>
+                {/* Period badge left of line */}
+                <div className="exp-period-col">
+                  <span className="exp-period-badge">{exp.shortPeriod}</span>
+                </div>
+
+                {/* Dot on the line */}
+                <div className="exp-dot-col">
+                  <div className="exp-dot">
+                    <div className="exp-dot-inner" />
                   </div>
-                  <span className="exp-card-period">{exp.period}</span>
-                  <p className="exp-card-desc">{exp.description}</p>
-                  <div className="exp-card-skills">
-                    {exp.skills.map((skill) => (
-                      <span key={skill} className="exp-skill-tag">
-                        {skill}
-                      </span>
+                </div>
+
+                {/* Card */}
+                <div className="exp-card glass-card">
+                  <div className="exp-card-top">
+                    <div className="exp-org-row">
+                      <div className="exp-org-icon">
+                        <Image src={exp.icon} alt={exp.organization} width={36} height={36} unoptimized />
+                      </div>
+                      <div>
+                        <span className="exp-org-name">{exp.organization}</span>
+                        <span className="exp-period-full">{exp.period}</span>
+                      </div>
+                    </div>
+                    <h3 className="exp-role gradient-text">{exp.title}</h3>
+                  </div>
+                  <p className="exp-desc">{exp.description}</p>
+                  <div className="exp-skills">
+                    {exp.skills.map(skill => (
+                      <span key={skill} className="exp-skill-tag">{skill}</span>
                     ))}
                   </div>
                 </div>
-
-                {/* Timeline dot */}
-                <div className="exp-timeline-dot">
-                  <div className="exp-dot-inner" />
-                </div>
               </motion.div>
-            );
-          })}
+
+              {/* Promotion connector between cards */}
+              {i < experiences.length - 1 && (
+                <motion.div
+                  className="exp-promotion-connector"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.35, duration: 0.4 }}
+                >
+                  <span>↓ Started as intern · Promoted after 2 months</span>
+                </motion.div>
+              )}
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </section>

@@ -1,0 +1,58 @@
+/* Custom cursor — pointer devices only */
+@media (pointer: fine) {
+  .cursor-dot,
+  .cursor-ring {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  }
+
+  .cursor-visible {
+    opacity: 1;
+  }
+
+  /* Small solid dot */
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--neon-green);
+    box-shadow: 0 0 8px var(--neon-green), 0 0 16px rgba(0, 255, 135, 0.4);
+    transition: width 0.15s ease, height 0.15s ease, opacity 0.3s ease;
+  }
+
+  .cursor-dot.cursor-dot-hover {
+    width: 12px;
+    height: 12px;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 12px var(--neon-cyan), 0 0 24px rgba(0, 212, 255, 0.5);
+  }
+
+  /* Lagging outer ring */
+  .cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid var(--neon-green);
+    background: transparent;
+    box-shadow: 0 0 10px rgba(0, 255, 135, 0.2);
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, opacity 0.3s ease, box-shadow 0.2s ease;
+  }
+
+  .cursor-ring.cursor-ring-hover {
+    width: 56px;
+    height: 56px;
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), inset 0 0 20px rgba(0, 212, 255, 0.05);
+  }
+}
+
+/* On touch/mobile: show default cursor */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}

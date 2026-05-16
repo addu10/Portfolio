@@ -24,23 +24,34 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.message) {
-      alert('Please fill out all fields');
-      return;
-    }
-
     setIsSubmitting(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Contact from ${formData.name}`,
+          botcheck: '',
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error(data.message ?? 'Submission failed');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 3000);
+      setTimeout(() => setSubmitStatus('idle'), 4000);
     }
   };
 
@@ -93,6 +104,7 @@ const Contact: React.FC = () => {
 
           <div className="contact-form-container glass-card">
             <form onSubmit={handleSubmit} className="contact-form">
+              <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
               <div className="form-group">
                 <label htmlFor="name">Name</label>
                 <input

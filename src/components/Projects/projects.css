@@ -22,11 +22,13 @@
   will-change: transform;
 }
 
-.project-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent-glow),
+.project-card:hover,
+.project-card-hovered {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2),
               0 20px 40px var(--shadow-lg),
-              0 0 30px var(--accent-glow);
+              0 0 40px rgba(0, 212, 255, 0.12),
+              inset 0 0 20px rgba(0, 212, 255, 0.04);
 }
 
 .project-image {
@@ -130,6 +132,40 @@
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-glow);
+}
+
+/* Case study highlights */
+.project-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease;
+}
+
+.project-highlights-visible {
+  max-height: 120px;
+  opacity: 1;
+  margin-bottom: 1rem;
+}
+
+.project-highlight-item {
+  font-size: 0.82rem;
+  color: var(--foreground-muted);
+  padding: 0.2rem 0;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.project-highlight-item::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--neon-cyan);
+  font-size: 0.7rem;
 }
 
 @media (max-width: 768px) {

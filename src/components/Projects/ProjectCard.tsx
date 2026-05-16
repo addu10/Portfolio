@@ -12,6 +12,7 @@ interface ProjectCardProps {
   image: string;
   technologies: string[];
   github?: string;
+  highlights?: string[];
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -21,8 +22,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   image,
   technologies,
   github,
+  highlights,
 }) => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [hovered, setHovered] = useState(false);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -36,13 +39,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   const handleMouseLeave = useCallback(() => {
     setTilt({ x: 0, y: 0 });
+    setHovered(false);
+  }, []);
+
+  const handleMouseEnter = useCallback(() => {
+    setHovered(true);
   }, []);
 
   return (
     <div
-      className="project-card"
+      className={`project-card ${hovered ? 'project-card-hovered' : ''}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
       style={{
         transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
       }}
@@ -71,6 +80,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </span>
           ))}
         </div>
+
+        {highlights && highlights.length > 0 && (
+          <ul className={`project-highlights ${hovered ? 'project-highlights-visible' : ''}`}>
+            {highlights.map((h, i) => (
+              <li key={i} className="project-highlight-item">{h}</li>
+            ))}
+          </ul>
+        )}
 
         <div className="project-links">
           {github && (

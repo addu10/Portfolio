@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -14,6 +14,31 @@ const Hero: React.FC = () => {
   const [titleIndex, setTitleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const btn1Ref = useRef<HTMLAnchorElement>(null);
+  const btn2Ref = useRef<HTMLAnchorElement>(null);
+
+  const makeMagnetic = useCallback((ref: React.RefObject<HTMLAnchorElement | null>) => {
+    const el = ref.current;
+    if (!el) return () => { };
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      const dx = e.clientX - (rect.left + rect.width / 2);
+      const dy = e.clientY - (rect.top + rect.height / 2);
+      el.style.transform = `translate(${dx * 0.3}px, ${dy * 0.3}px)`;
+    };
+    const onLeave = () => { el.style.transform = ''; };
+    el.addEventListener('mousemove', onMove);
+    el.addEventListener('mouseleave', onLeave);
+    return () => {
+      el.removeEventListener('mousemove', onMove);
+      el.removeEventListener('mouseleave', onLeave);
+    };
+  }, []);
+
+  useEffect(() => {
+    const cleanups = [makeMagnetic(btn1Ref), makeMagnetic(btn2Ref)];
+    return () => cleanups.forEach(fn => fn());
+  }, [makeMagnetic]);
 
   useEffect(() => {
     const currentTitle = TITLES[titleIndex];
@@ -75,8 +100,8 @@ const Hero: React.FC = () => {
             Hello, I&apos;m
           </motion.p>
 
-          <motion.h1 className="hero-title" variants={itemVariants}>
-            <span className="gradient-text">Adnan Sameer</span>
+          <motion.h1 className="hero-title glitch-wrapper" variants={itemVariants}>
+            <span className="gradient-text-animated" data-text="Adnan Sameer">Adnan Sameer</span>
           </motion.h1>
 
           <motion.div className="hero-subtitle-wrapper" variants={itemVariants}>
@@ -87,15 +112,15 @@ const Hero: React.FC = () => {
           </motion.div>
 
           <motion.p className="hero-description" variants={itemVariants}>
-            A passionate Engineering student building AI-powered solutions
+            A passionate Engineer building AI-powered solutions
             and automation systems. Currently crafting intelligent workflows at Bayzat UAE.
           </motion.p>
 
           <motion.div className="hero-buttons" variants={itemVariants}>
-            <Link href="/#contact" className="btn btn-primary">
+            <Link ref={btn1Ref} href="/#contact" className="btn btn-primary magnetic-btn">
               Get in Touch
             </Link>
-            <Link href="/resume" className="btn btn-secondary">
+            <Link ref={btn2Ref} href="/resume" className="btn btn-secondary magnetic-btn">
               View Resume
             </Link>
           </motion.div>

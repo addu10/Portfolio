@@ -149,6 +149,20 @@
   opacity: 0.9;
 }
 
+/* Glitch wrapper for name */
+.glitch-wrapper {
+  position: relative;
+}
+
+/* Magnetic button — transition override for smooth return */
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease,
+              background 0.3s ease;
+  will-change: transform;
+}
+
+
 /* Responsive */
 @media (max-width: 992px) {
   .hero-title {

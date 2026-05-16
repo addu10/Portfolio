@@ -9,6 +9,7 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+/.claude
 
 # testing
 /coverage
@@ -23,6 +24,13 @@
 # misc
 .DS_Store
 *.pem
+
+# playwright mcp artifacts
+.playwright-mcp/
+
+# local screenshot audit files
+check-*.png
+audit-*.png
 
 # debug
 npm-debug.log*

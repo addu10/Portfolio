@@ -10,8 +10,8 @@ const projectsData = [
     description: 'AI-powered jobs & internship portal for CUSAT students to find career opportunities.',
     image: '/images/CareerBridge Main.png',
     technologies: ['NextJS', 'Supabase', 'Python Django'],
-    github: 'https://github.com/addu10/CareerBridge'
-    
+    github: 'https://github.com/addu10/CareerBridge',
+    highlights: ['AI-matched job recommendations', 'Real-time application tracking', 'Built for 5,000+ CUSAT students'],
   },
   {
     id: 2,
@@ -19,8 +19,8 @@ const projectsData = [
     description: 'Passport verification system using face recognition technology for enhanced security and authentication.',
     image: '/images/Sentinel Main.png',
     technologies: ['Python', 'Flask', 'Face-Recognition ML', 'MySQL'],
-    github: 'https://github.com/addu10/Sentinel-Shield'
-    
+    github: 'https://github.com/addu10/Sentinel-Shield',
+    highlights: ['Face recognition with 95%+ accuracy', 'Passport OCR + liveness detection', 'Real-time verification pipeline'],
   },
   {
     id: 3,
@@ -28,8 +28,8 @@ const projectsData = [
     description: 'Android app for CUSAT students to buy, sell, and rent goods within the campus community.',
     image: '/images/CMEX logo.png',
     technologies: ['React Native', 'Supabase'],
-    github: 'https://github.com/addu10/CMEX'
-    
+    github: 'https://github.com/addu10/CMEX',
+    highlights: ['In-app messaging between buyers/sellers', 'Image upload & product listing', 'Campus-scoped marketplace'],
   },
   {
     id: 4,
@@ -37,7 +37,8 @@ const projectsData = [
     description: 'Blockchain-based donation platform to prevent donation fraud using smart contracts.',
     image: '/images/Our Rupee Main.png',
     technologies: ['HTML/CSS/JS', 'Ethereum', 'Solidity', 'Auth0', 'Flask'],
-    github: 'https://github.com/addu10/OurRupee'
+    github: 'https://github.com/addu10/OurRupee',
+    highlights: ['Immutable on-chain donation records', 'Auth0 identity verification', 'Won Best Auth0 Implementation — Make-a-Ton 7.0'],
   },
   {
     id: 5,
@@ -45,7 +46,8 @@ const projectsData = [
     description: 'Decentralized verification system for criminal records developed for Kochi City Police.',
     image: '/images/Crime Verification Main.png',
     technologies: ['Ethereum', 'Solidity', 'React Native', 'Python'],
-    github: 'https://github.com/addu10/criminal-verification'
+    github: 'https://github.com/addu10/criminal-verification',
+    highlights: ['Tamper-proof decentralized records', 'Built for Kochi City Police', 'Cross-platform mobile interface'],
   },
   {
     id: 6,
@@ -53,8 +55,9 @@ const projectsData = [
     description: 'Notes sharing platform for CUSAT students, enabling easy access to academic resources.',
     image: '/images/Hipus Main.png',
     technologies: ['Flask', 'Telethon', 'NextJS'],
-    github: 'https://github.com/AazimAnish/CUSAT-notes'
-  }
+    github: 'https://github.com/AazimAnish/CUSAT-notes',
+    highlights: ['Telegram-integrated notes pipeline', 'Searchable academic resource library', 'Used by CUSAT student community'],
+  },
 ];
 
 const Projects: React.FC = () => {
@@ -76,6 +79,7 @@ const Projects: React.FC = () => {
               image={project.image}
               technologies={project.technologies}
               github={project.github}
+              highlights={project.highlights}
             />
           ))}
         </div>

@@ -52,7 +52,7 @@
   margin: 0 auto 3rem;
 }
 
-/* Skill Orb */
+/* Skill Hex Card */
 .skill-orb {
   display: flex;
   flex-direction: column;
@@ -64,15 +64,50 @@
   border: 1px solid var(--border);
   cursor: default;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-orb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .skill-orb:hover,
 .skill-orb-hovered {
   transform: translateY(-6px);
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent-glow),
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2),
               0 8px 30px var(--shadow-lg),
-              0 0 20px var(--accent-glow);
+              0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+.skill-orb:hover::before,
+.skill-orb-hovered::before {
+  opacity: 1;
+}
+
+/* Scanline animation on hover */
+.skill-orb:hover::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  animation: scanLine 0.8s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes scanLine {
+  from { top: -2px; opacity: 1; }
+  to   { top: 100%; opacity: 0; }
 }
 
 .skill-orb-ring {
@@ -95,7 +130,7 @@
   font-size: 1rem;
   font-weight: 700;
   color: var(--heading-color);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
 }
 
 .skill-orb-name {
@@ -104,35 +139,68 @@
   color: var(--foreground);
   text-align: center;
   line-height: 1.3;
+  transition: color 0.3s ease;
 }
 
-/* All skills tags */
-.skills-all-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  max-width: 700px;
-  margin: 0 auto;
-  padding-top: 1rem;
+.skill-orb:hover .skill-orb-name {
+  color: var(--neon-cyan);
+}
+
+/* Infinite marquee ticker */
+.skills-marquee-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 1.25rem 0 0;
   border-top: 1px solid var(--border);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
-.skill-tag-mini {
-  padding: 0.3rem 0.75rem;
-  border-radius: 1rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--foreground-muted);
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  transition: all 0.2s ease;
+.skills-marquee-wrapper:hover .skills-marquee-track {
+  animation-play-state: paused;
 }
 
-.skill-tag-mini:hover {
+.skills-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.skill-marquee-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  margin: 0 0.35rem;
+  border-radius: 2rem;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--accent);
-  border-color: var(--accent);
+  border: 1px solid var(--accent-glow-strong);
   background: var(--accent-glow);
+  white-space: nowrap;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  cursor: default;
+}
+
+.skill-marquee-pill:hover {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+}
+
+.skill-marquee-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.5;
 }
 
 /* Responsive */

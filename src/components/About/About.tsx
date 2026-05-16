@@ -62,21 +62,27 @@ const About = () => {
           >
             <div className="about-accent-line" />
             <p>
-              I am a passionate and dedicated Information Technology student currently in my 4th year
-              of BTech at CUSAT. My current focus revolves around AI Models, Automations, and
-              I&apos;ve been actively building my skills in this area through experience gained
-              through projects and internships.
+              I am a passionate and dedicated AI Automation Specialist currently working at Bayzat.
+              My focus revolves around AI models, intelligent automations, and web scraping —
+              areas I have been actively developing through hands-on projects, internships, and
+              real-world production experience.
             </p>
             <p>
-              My technical journey began with learning programming fundamentals, and I&apos;ve since
-              expanded my knowledge into web development, data analysis, and application
-              development. Then I shifted my focus to AI Models, Automations, and Web Scraping, which
-              allowed me to work on projects that were more challenging and interesting.
+              My technical journey began with mastering programming fundamentals, which laid the
+              groundwork for expanding into web development, data analysis, and application
+              development. Over time, I gravitated toward AI and automation — drawn by the
+              challenge of building systems that think, adapt, and scale. This shift allowed me
+              to take on more complex and impactful work, ultimately leading to the design and
+              deployment of multiple production-grade workflows at Bayzat that streamline
+              day-to-day operations, reduce manual effort, and significantly improve overall
+              efficiency.
             </p>
             <p>
               Beyond technical skills, I value collaboration, continuous learning, and effective
-              communication. I&apos;m seeking opportunities to apply my skills in a professional
-              environment and contribute to meaningful projects.
+              communication. I believe the best solutions are built not just with strong code,
+              but with clear thinking and the ability to work well with others. I am always
+              looking to grow — whether that means exploring a new tool, contributing to
+              meaningful projects, or finding smarter ways to solve problems that actually matter.
             </p>
           </motion.div>
         </div>

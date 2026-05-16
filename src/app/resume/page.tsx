@@ -5,12 +5,14 @@ import Link from 'next/link';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import ThemeProvider from '../../components/ThemeToggle/ThemeProvider';
+import CustomCursor from '../../components/CustomCursor/CustomCursor';
 import './resume.css';
 
 const ResumePage = () => {
   return (
     <ThemeProvider>
       <>
+        <CustomCursor />
         <Navbar />
         <main className="resume-page">
           <div className="container">
@@ -20,15 +22,15 @@ const ResumePage = () => {
                   ← Back to Home
                 </Link>
                 <h1 className="resume-title">My Resume</h1>
-                <a 
-                  href="/Resume - Adnan Sameer.pdf" 
-                  download="Adnan_Sameer_Resume.pdf" 
+                <a
+                  href="/Resume - Adnan Sameer.pdf"
+                  download="Adnan_Sameer_Resume.pdf"
                   className="download-button"
                 >
                   Download PDF
                 </a>
               </div>
-              
+
               <div className="resume-content">
                 {/* Education Section */}
                 <section className="resume-section">
@@ -36,12 +38,12 @@ const ResumePage = () => {
                   <div className="education-item">
                     <div className="education-header">
                       <h3 className="institution">Cochin University of Science and Technology (CUSAT), Kerala, India</h3>
-                      <span className="year">Expected May 2026</span>
+                      <span className="year">Nov 2022 - May 2026</span>
                     </div>
                     <p className="degree">Bachelor of Technology in Information Technology</p>
                     <p className="grade">CGPA: 9.618/10.0</p>
                   </div>
-                  
+
                   <div className="education-item">
                     <div className="education-header">
                       <h3 className="institution">Benchmark International School, Kerala, India</h3>
@@ -50,7 +52,7 @@ const ResumePage = () => {
                     <p className="degree">Higher Secondary Schooling, 12th CBSE</p>
                     <p className="grade">Percentage: 91.2%</p>
                   </div>
-                  
+
                   <div className="education-item">
                     <div className="education-header">
                       <h3 className="institution">Al Ain Juniors School, Al Ain, UAE</h3>
@@ -60,7 +62,7 @@ const ResumePage = () => {
                     <p className="grade">Percentage: 91%</p>
                   </div>
                 </section>
-                
+
                 {/* Experience Section */}
                 <section className="resume-section">
                   <h2 className="section-title">Experience</h2>
@@ -74,7 +76,7 @@ const ResumePage = () => {
                       <li>Design and implement end-to-end AI-driven automations to streamline Marketing and Customer Success campaigns.</li>
                       <li>Build scalable workflows using n8n and Clay AI to fully automate campaign execution, monitoring, and reporting.</li>
                       <li>Reduce manual effort by introducing intelligent process automations, improving operational efficiency and campaign
-                      turnaround time.</li>
+                        turnaround time.</li>
                     </ul>
                   </div>
 
@@ -92,11 +94,11 @@ const ResumePage = () => {
                   </div>
 
                 </section>
-                
+
                 {/* Projects Section */}
                 <section className="resume-section">
                   <h2 className="section-title">Projects</h2>
-                  
+
                   <div className="experience-item">
                     <div className="experience-header">
                       <h3 className="company">Career-Bridge – AI Powered Jobs & Internship Portal</h3>
@@ -109,7 +111,7 @@ const ResumePage = () => {
                       <li>Tech Stack – NextJS, Supabase, Python Django.</li>
                     </ul>
                   </div>
-                  
+
                   <div className="experience-item">
                     <div className="experience-header">
                       <h3 className="company">CMEX – CUSAT Marketplace Android App</h3>
@@ -122,7 +124,7 @@ const ResumePage = () => {
                       <li>Tech Stack – React Native, Supabase.</li>
                     </ul>
                   </div>
-                  
+
                   <div className="experience-item">
                     <div className="experience-header">
                       <h3 className="company">Our Rupee – Blockchain Based Donation Platform</h3>
@@ -135,7 +137,7 @@ const ResumePage = () => {
                       <li>Tech Stack - HTML CSS JS, Ethereum, Ganache, Metamask, Solidity, Auth0, Flask Framework.</li>
                     </ul>
                   </div>
-                  
+
                   <div className="experience-item">
                     <div className="experience-header">
                       <h3 className="company">Sentinel Shield – Passport Verification System</h3>
@@ -148,7 +150,7 @@ const ResumePage = () => {
                       <li>Tech Stack – Python (Flask Framework, Face-Recognition ML) and Basic Front-End, MySQL.</li>
                     </ul>
                   </div>
-                  
+
                   <div className="experience-item">
                     <div className="experience-header">
                       <h3 className="company">Criminal Verification System for Kochi City Police</h3>
@@ -162,7 +164,7 @@ const ResumePage = () => {
                       <li>Tech Stack – Basic Front-End, Metamask, Ethereum, Ganache, Solidity, React Native for App, Python.</li>
                     </ul>
                   </div>
-                  
+
                   <div className="experience-item">
                     <div className="experience-header">
                       <h3 className="company">HIPUS – CUSAT Notes Sharing Platform</h3>
@@ -176,11 +178,11 @@ const ResumePage = () => {
                     </ul>
                   </div>
                 </section>
-                
+
                 {/* Achievements Section */}
                 <section className="resume-section">
                   <h2 className="section-title">Achievements</h2>
-                  
+
                   <ul className="achievements-list">
                     <li>Best Product in Hack to the Future, Conducted By IEEE Manipal University, Jaipur.</li>
                     <li>Best Implementation of Auth0 in Make-a-Ton 7.0, Conducted By CITTIC, CUSAT, Kerala.</li>
@@ -188,17 +190,17 @@ const ResumePage = () => {
                     <li>Winners of the Hack-Europa, Conducted By CITTIC & IT Dept, CUSAT.</li>
                   </ul>
                 </section>
-                
+
                 {/* Skills Section */}
                 <section className="resume-section">
                   <h2 className="section-title">Skills</h2>
-                  
+
                   <div className="skills-container">
                     <div className="skill-category">
                       <h3 className="category-title">Technical Skills</h3>
                       <div className="skills-list">
                         <span className="skill-tag">Python, C, C++ </span>
-                        <span className="skill-tag">Flask Framewor & Django</span>
+                        <span className="skill-tag">Flask Framework & Django</span>
                         <span className="skill-tag">n8n</span>
                         <span className="skill-tag">React Native</span>
                         <span className="skill-tag">Supabase</span>
@@ -207,7 +209,7 @@ const ResumePage = () => {
                         <span className="skill-tag">Customer IO</span>
                       </div>
                     </div>
-                    
+
                     <div className="skill-category">
                       <h3 className="category-title">Languages</h3>
                       <div className="skills-list">
@@ -217,7 +219,7 @@ const ResumePage = () => {
                         <span className="skill-tag">Hindi (Basic)</span>
                       </div>
                     </div>
-                    
+
                     <div className="skill-category">
                       <h3 className="category-title">Non-Technical Skills</h3>
                       <div className="skills-list">

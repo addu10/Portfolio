@@ -4,7 +4,7 @@ import './footer.css';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className="footer">
       <div className="container footer-container">
@@ -21,13 +21,13 @@ const Footer: React.FC = () => {
               <a href="https://github.com/addu10" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaGithub />
               </a>
-              <a href="https://wa.me/918089708574" target="_blank" rel="noopener noreferrer" className="social-icon whatsapp">
+              <a href="https://wa.me/971506745365" target="_blank" rel="noopener noreferrer" className="social-icon whatsapp">
                 <FaWhatsapp />
               </a>
             </div>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
           <p className="copyright">
             &copy; {currentYear} Adnan Sameer.
