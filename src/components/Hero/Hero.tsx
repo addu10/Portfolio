@@ -3,7 +3,7 @@
 import React, { Suspense, useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './hero.css';
 
 const ParticleField = React.lazy(() => import('./ParticleField'));
@@ -16,6 +16,17 @@ const Hero: React.FC = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const btn1Ref = useRef<HTMLAnchorElement>(null);
   const btn2Ref = useRef<HTMLAnchorElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, 40]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   const makeMagnetic = useCallback((ref: React.RefObject<HTMLAnchorElement | null>) => {
     const el = ref.current;
@@ -80,7 +91,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="hero" id="home">
+    <section className="hero" id="home" ref={heroRef}>
       {/* 3D Background */}
       <Suspense fallback={null}>
         <ParticleField className="hero-particles" />
@@ -90,6 +101,7 @@ const Hero: React.FC = () => {
       <div className="hero-gradient-overlay" />
 
       <div className="container hero-container">
+        <motion.div style={{ y: contentY, opacity: contentOpacity }}>
         <motion.div
           className="hero-content"
           variants={containerVariants}
@@ -125,7 +137,9 @@ const Hero: React.FC = () => {
             </Link>
           </motion.div>
         </motion.div>
+        </motion.div>
 
+        <motion.div style={{ y: imageY, opacity: imageOpacity }}>
         <motion.div
           className="hero-image-container"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -143,6 +157,7 @@ const Hero: React.FC = () => {
               priority
             />
           </div>
+        </motion.div>
         </motion.div>
       </div>
     </section>

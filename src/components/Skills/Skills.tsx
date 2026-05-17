@@ -47,13 +47,26 @@ const Skills: React.FC = () => {
   return (
     <section className="skills section" id="skills">
       <div className="container">
-        <h2 className="section-title">My Skills</h2>
-        <p className="section-description">
-          Technologies and tools I work with to build intelligent solutions.
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <h2 className="section-title">My Skills</h2>
+          <p className="section-description">
+            Technologies and tools I work with to build intelligent solutions.
+          </p>
+        </motion.div>
 
         {/* Category Tabs */}
-        <div className="skills-tabs">
+        <motion.div
+          className="skills-tabs"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+        >
           {(Object.keys(skillsData) as Category[]).map((cat) => (
             <button
               key={cat}
@@ -63,7 +76,7 @@ const Skills: React.FC = () => {
               {categoryLabels[cat]}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Skills Grid */}
         <AnimatePresence mode="wait">

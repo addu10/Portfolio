@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import './achievements.css';
 
 const Achievements: React.FC = () => {
@@ -44,14 +47,28 @@ const Achievements: React.FC = () => {
   return (
     <section className="achievements section" id="achievements">
       <div className="container">
-        <h2 className="section-title">Hackathon Achievements</h2>
-        <p className="section-description">
-          Awards and recognitions from various hackathons and competitions that showcase my problem-solving abilities and technical skills.
-        </p>
-        
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <h2 className="section-title">Hackathon Achievements</h2>
+          <p className="section-description">
+            Awards and recognitions from various hackathons and competitions that showcase my problem-solving abilities and technical skills.
+          </p>
+        </motion.div>
+
         <div className="achievements-container">
-          {achievements.map((achievement) => (
-            <div key={achievement.id} className="achievement-card">
+          {achievements.map((achievement, index) => (
+            <motion.div
+              key={achievement.id}
+              className="achievement-card"
+              initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            >
               <div className="achievement-image-container">
                 <Image 
                   src={achievement.image}
@@ -94,7 +111,7 @@ const Achievements: React.FC = () => {
                   </Link>
                 )}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import './projects.css';
 
@@ -60,29 +63,53 @@ const projectsData = [
   },
 ];
 
+const gridVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
 const Projects: React.FC = () => {
   return (
     <section className="projects section" id="projects">
       <div className="container">
-        <h2 className="section-title">My Projects</h2>
-        <p className="section-description">
-          Here are some of the projects I&apos;ve worked on. Each project showcases my skills and experience in different technologies.
-        </p>
-        
-        <div className="projects-grid">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <h2 className="section-title">My Projects</h2>
+          <p className="section-description">
+            Here are some of the projects I&apos;ve worked on. Each project showcases my skills and experience in different technologies.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="projects-grid"
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {projectsData.map(project => (
-            <ProjectCard
-              key={project.id}
-              id={project.id}
-              title={project.title}
-              description={project.description}
-              image={project.image}
-              technologies={project.technologies}
-              github={project.github}
-              highlights={project.highlights}
-            />
+            <motion.div key={project.id} variants={cardVariants}>
+              <ProjectCard
+                id={project.id}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                technologies={project.technologies}
+                github={project.github}
+                highlights={project.highlights}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
