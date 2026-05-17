@@ -1,6 +1,7 @@
 .skills {
   background: var(--section-alt-bg);
   padding: 5rem 0;
+  overflow: hidden;
 }
 
 /* Category Tabs */
@@ -212,11 +213,12 @@
 
   .skills-tabs {
     gap: 0.4rem;
+    padding: 0 0.5rem;
   }
 
   .skills-tab {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -233,5 +235,18 @@
   .skill-orb-ring {
     width: 70px;
     height: 70px;
+  }
+
+  .skills-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4rem;
+    padding: 0;
+  }
+
+  .skills-tab {
+    text-align: center;
+    padding: 0.45rem 0.5rem;
+    font-size: 0.78rem;
   }
 }
